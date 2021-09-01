@@ -51,7 +51,7 @@ gast==0.4.0
 google-auth==1.33.0
 google-auth-oauthlib==0.4.4
 google-pasta==0.2.0
-greenlet @ file:///Users/runner/miniforge3/conda-bld/greenlet_1620327554207/work
+greenlet
 grpcio==1.34.1
 gunicorn==20.0.4
 h5py==3.1.0
@@ -85,7 +85,7 @@ Markdown==3.3.4
 markdown-it-py==1.1.0
 MarkupSafe==2.0.1
 matlab==0.1
-matplotlib @ file:///Users/runner/miniforge3/conda-bld/matplotlib-suite_1620506066343/work
+matplotlib 
 matplotlib-inline==0.1.2
 matplotlib-venn==0.11.6
 mdit-py-plugins==0.2.8
@@ -105,7 +105,7 @@ numba==0.53.1
 numexpr==2.7.3
 numpy==1.21.1
 oauthlib==3.1.1
-olefile @ file:///home/conda/feedstock_root/build_artifacts/olefile_1602866521163/work
+olefile
 opencv-python-headless==4.5.1.48
 openpyxl==3.0.7
 opt-einsum==3.3.0
@@ -118,7 +118,7 @@ pdfminer.six==20200517
 pdfplumber==0.5.28
 pexpect==4.8.0
 pickleshare==0.7.5
-Pillow @ file:///Users/runner/miniforge3/conda-bld/pillow_1625678024115/work
+Pillow
 plotly==4.14.3
 prometheus-client==0.11.0
 prompt-toolkit==3.0.19
@@ -280,9 +280,9 @@ pyqtgraph==0.12.0
 PyRect==0.1.4
 pyrsistent==0.18.0
 PyScreeze==0.1.27
-python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
+python-dateutil
 PyTweening==1.0.3
-pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1612179539967/work
+pytz
 PyYAML==5.4.1
 pyzmq==22.1.0
 qtconsole==5.1.1
@@ -309,7 +309,7 @@ sklearn==0.0
 sniffio==1.2.0
 sortedcontainers==2.4.0
 soupsieve==2.2.1
-SQLAlchemy @ file:///Users/runner/miniforge3/conda-bld/sqlalchemy_1626310721597/work
+SQLAlchemy
 sqlparse==0.4.1
 tables==3.6.1
 tensorboard==2.5.0
