@@ -14,7 +14,6 @@ pandocfilters==1.4.3
 Pillow
 pybase64
 rdkit-pypi
-json
 time
 os-sys
 more-itertools==2.2
