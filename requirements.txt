@@ -14,9 +14,6 @@ pandocfilters==1.4.3
 Pillow
 pybase64
 rdkit-pypi
-time
-os-sys
-more-itertools==2.2
 rdchiral==1.1.0
 regex==2021.4.4
 reportlab==3.5.68
