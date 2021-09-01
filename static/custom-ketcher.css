@@ -1,0 +1,26 @@
+@import '~src/styles/settings/settings.scss';
+
+body,
+main[role=application] {
+  background: #fff;
+}
+
+#canvas {
+  background: #FFF;
+  border: 1px solid #e0e0e0;
+  border-radius: 1px;
+}
+
+[role=toolbar] button {
+  background: transparent;
+}
+
+[role=toolbar] button>svg {
+  position: absolute;
+  top: .35em;
+  left: .35em;
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
+  fill: #161616;
+}
