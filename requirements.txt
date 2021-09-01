@@ -1,7 +1,6 @@
 absl-py==0.13.0
 action==1.4.4
 aiohttp==3.7.4.post0
-aizynthfinder @ https://github.com/MolecularAI/aizynthfinder/archive/v2.4.0.tar.gz
 anyio==2.2.0
 appnope==0.1.2
 apted==1.0.3
