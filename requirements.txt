@@ -54,6 +54,7 @@ google-auth-oauthlib==0.4.4
 google-pasta==0.2.0
 greenlet @ file:///Users/runner/miniforge3/conda-bld/greenlet_1620327554207/work
 grpcio==1.34.1
+gunicorn==20.0.4
 h5py==3.1.0
 hyperlink==21.0.0
 idna==3.2
