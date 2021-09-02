@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body class="ibm" style="background-color: pink;">
+
+    <!-- NAVBAR -->
+    <div class="collapse" id="navbarToggleExternalContent"></div>
+    <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">CAT</a>
+            
+    </div>
+    </nav>
+        <!-- NAVBAR -->
+
+
+    <div class="container">
+    <div class="card text-center" style="background-color:white; border-color: black; border-radius: 7px; margin-top: 5%">
+        <div id="remove-button" style="justify-content: flex-start;">
+            <h4>No pathways could be found involving the reactant you selected. Do you want to see pathways involving compounds similar to your reactant?</h4>
+            <button type="button" class="btn btn-primary" style="margin-bottom: 1%; width: 30%; margin-top: 1%;" 
+                    onclick="document.getElementById('image1').hidden=false; 
+                    document.getElementById('remove-button').hidden=true; 
+                    document.getElementById('reset-button').hidden=false;">Yes</button>
+            <button type="button" class="btn btn-primary" style="margin-bottom: 1%; width: 30%; margin-top: 1%;" onclick="loadDoc3()">No, take me back</button>    
+        </div>
+        <button id="reset-button" type="button" hidden class="btn btn-primary" style="margin-bottom: 2%; width: 100%;" onclick="loadDoc3()">Reset</button>
+        <div id="demo1" class="card-body">
+            <img id="image1" hidden src="data:image/png;base64,{{ u_image }}" class="img-fluid" style="width: 100%; height: 100%;">
+        </div>
+    </div>
+    </div>
+
+    <script>
+        function loadDoc3() {
+
+            // I can eaisly make this a GET request, but life...
+            const options = {
+                        method: 'POST',
+                        body: JSON.stringify({reactant:'json', product:'json'}),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }
+            fetch('/post12', options)
+                .then(response => response.json())
+                .then(data => document.getElementById('demo1').innerHTML=data)
+                .then(window.location.replace('/'));
+        }
+    </script>
+    
+</body>
+</html>
+    
