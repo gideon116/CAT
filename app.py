@@ -1,10 +1,8 @@
-from flask import render_template, Flask, request, send_file, redirect, url_for
+from flask import render_template, Flask, request, redirect
 from PIL import Image
 import io
 from rdkit.Chem.Draw import IPythonConsole
-from requests.models import requote_uri
 from Working_DRDP import meths
-import os
 import numpy as np
 import base64
 
@@ -15,7 +13,7 @@ connect = []
 dataString = ''
 post1 = ['0']
 
-im = Image.open("./static/images/newReaction.png")
+im = Image.open("./static/images/reset-page.png")
 arr1 = np.asarray(im)
 img1 = Image.fromarray(arr1.astype('uint8'))
 data1 = io.BytesIO()
@@ -23,12 +21,20 @@ img1.save(data1, "PNG")
 encoded_img_data = []
 encoded_img_data.append(base64.b64encode(data1.getvalue())) ## value will be replaced
 
-new_im = Image.open('./static/images/newReaction.png') ## value will be replaced
+new_im = Image.open('./static/images/reset-page.png') ## value will be replaced
 tests = ['0']
 tests2 = ['0']
 
 @app.route("/post1", methods=['GET', 'POST'])
 def log():
+
+    imreset = Image.open("./static/images/reset-page.png")
+    arr1reset = np.asarray(imreset)
+    img1reset = Image.fromarray(arr1reset.astype('uint8'))
+    data1reset = io.BytesIO()
+    img1reset.save(data1reset, "PNG")
+    encoded_img_data.clear()
+    encoded_img_data.append(base64.b64encode(data1reset.getvalue()))
 
     if request.method == 'POST':
         post1.append(request.json)
@@ -107,14 +113,34 @@ def log():
 @app.route("/result", methods=['GET', 'POST'])
 def result():
 
+    to_be_sent = encoded_img_data[-1].decode('utf-8')
+
+    imreset = Image.open("./static/images/reset-page.png")
+    arr1reset = np.asarray(imreset)
+    img1reset = Image.fromarray(arr1reset.astype('uint8'))
+    data1reset = io.BytesIO()
+    img1reset.save(data1reset, "PNG")
+    encoded_img_data.clear()
+    encoded_img_data.append(base64.b64encode(data1reset.getvalue()))
+
     if request.method == 'POST' or 'GET':
-        return render_template("result.html", u_image = encoded_img_data[-1].decode('utf-8'))
+        return render_template("result.html", u_image = to_be_sent)
 
 @app.route("/result2", methods=['GET', 'POST'])
 def result2():
 
+    to_be_sent = encoded_img_data[-1].decode('utf-8')
+
+    imreset = Image.open("./static/images/reset-page.png")
+    arr1reset = np.asarray(imreset)
+    img1reset = Image.fromarray(arr1reset.astype('uint8'))
+    data1reset = io.BytesIO()
+    img1reset.save(data1reset, "PNG")
+    encoded_img_data.clear()
+    encoded_img_data.append(base64.b64encode(data1reset.getvalue()))
+
     if request.method == 'POST' or 'GET':
-        return render_template("result2.html", u_image = encoded_img_data[-1].decode('utf-8'))
+        return render_template("result2.html", u_image = to_be_sent)
 
         
 @app.route("/")
@@ -124,35 +150,4 @@ def index():
 if __name__ == '__main__': 
     app.run(port=3000)
 
-
-
-
-
-
-
-# import sys
-# from Working_DRDP import meths
-# from smiles import meths1
-# # mylist = {'key': 'value'}
-# # smiles = requests.get('127.0.0.1:3000/post12')
-# # requests.post('/post1', data = json.dumps(mylist), headers={'content-type': 'application/json'})
-# # print(smiles.json())
-# # symbol = requests.get('http://127.0.0.1:3000/post12')
-# # symbol = meths.main(sys.argv[1])
-# # print(meths.main(sys.argv[1]))
-# def in_nested_list(my_list, item):
-
-#     if item in my_list:
-#         return True
-#     else:
-#         return any(in_nested_list(sublist, item) for sublist in my_list if isinstance(sublist, list))
-
-
-# # reactant = sys.argv[2]
-# # product = sys.argv[1]
-# reactant = 'C1CCOC1'
-# product = 'CCCC(C#CC)(O)C'
-# symbol = meths.main(product, reactant)
-
-# print(symbol)
 
