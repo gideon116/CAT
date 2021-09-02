@@ -28,14 +28,6 @@ tests2 = ['0']
 @app.route("/post1", methods=['GET', 'POST'])
 def log():
 
-    imreset = Image.open("./static/images/reset-page.png")
-    arr1reset = np.asarray(imreset)
-    img1reset = Image.fromarray(arr1reset.astype('uint8'))
-    data1reset = io.BytesIO()
-    img1reset.save(data1reset, "PNG")
-    encoded_img_data.clear()
-    encoded_img_data.append(base64.b64encode(data1reset.getvalue()))
-
     if request.method == 'POST':
         post1.append(request.json)
 
@@ -72,7 +64,7 @@ def log():
             
             encoded_img_data.append(base64.b64encode(file_object.getvalue()))
 
-            return redirect('/result2')
+            return "redirect('/result2')"
         else:
             images = []
             for ex in list1:
@@ -101,7 +93,7 @@ def log():
             tests.append('1b')
             
             encoded_img_data.append(base64.b64encode(file_object.getvalue()))
-            return redirect('/result')
+            return "redirect('/result')"
 
     else:
         if tests2[-1] == 0:
