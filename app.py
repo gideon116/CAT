@@ -117,7 +117,7 @@ def result2():
         return render_template("result2.html", u_image = encoded_img_data[-1].decode('utf-8'))
 
         
-@app.route("/index")
+@app.route("/")
 def index():
     return render_template("main.html", u_image = encoded_img_data[-1].decode('utf-8'))
 
