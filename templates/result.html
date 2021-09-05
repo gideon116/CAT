@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body style="background-color: white;">
+
+    <!-- NAVBAR -->
+    <div class="collapse" id="navbarToggleExternalContent"></div>
+    <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">HOME</a>
+            
+    </div>
+    </nav>
+        <!-- NAVBAR -->
+
+
+    <div class="container">
+    <div class="card text-center" style="background-color:white; border-color: black; border-radius: 7px; margin-top: 5%">
+        <button type="button" class="btn btn-primary" style="margin-bottom: 2%; width: 100%;" onclick="loadDoc3()">Reset</button>
+        <div id="demo1" class="card-body">
+            <img id="image1" src="data:image/png;base64,{{ u_image }}" class="img-fluid" style="width: 100%; height: 100%;">
+        </div>
+    </div>
+    </div>
+
+    <script>
+        function loadDoc3() {
+                    window.location.replace('/')
+                }
+    </script>
+    
+</body>
+</html>
+    
