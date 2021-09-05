@@ -105,33 +105,35 @@ def log():
 @app.route("/result", methods=['GET', 'POST'])
 def result():
 
-    to_be_sent = encoded_img_data[-1].decode('utf-8')
-
-    imreset = Image.open("./static/images/reset-page.png")
-    arr1reset = np.asarray(imreset)
-    img1reset = Image.fromarray(arr1reset.astype('uint8'))
-    data1reset = io.BytesIO()
-    img1reset.save(data1reset, "PNG")
-    encoded_img_data.clear()
-    encoded_img_data.append(base64.b64encode(data1reset.getvalue()))
-
     if request.method == 'POST' or 'GET':
+
+        to_be_sent = encoded_img_data[-1].decode('utf-8')
+
+        imreset = Image.open("./static/images/reset-page.png")
+        arr1reset = np.asarray(imreset)
+        img1reset = Image.fromarray(arr1reset.astype('uint8'))
+        data1reset = io.BytesIO()
+        img1reset.save(data1reset, "PNG")
+        encoded_img_data.clear()
+        encoded_img_data.append(base64.b64encode(data1reset.getvalue()))
+
+
         return render_template("result.html", u_image = to_be_sent)
 
 @app.route("/result2", methods=['GET', 'POST'])
 def result2():
 
-    to_be_sent = encoded_img_data[-1].decode('utf-8')
-
-    imreset = Image.open("./static/images/reset-page.png")
-    arr1reset = np.asarray(imreset)
-    img1reset = Image.fromarray(arr1reset.astype('uint8'))
-    data1reset = io.BytesIO()
-    img1reset.save(data1reset, "PNG")
-    encoded_img_data.clear()
-    encoded_img_data.append(base64.b64encode(data1reset.getvalue()))
-
     if request.method == 'POST' or 'GET':
+        to_be_sent = encoded_img_data[-1].decode('utf-8')
+
+        imreset = Image.open("./static/images/reset-page.png")
+        arr1reset = np.asarray(imreset)
+        img1reset = Image.fromarray(arr1reset.astype('uint8'))
+        data1reset = io.BytesIO()
+        img1reset.save(data1reset, "PNG")
+        encoded_img_data.clear()
+        encoded_img_data.append(base64.b64encode(data1reset.getvalue()))
+        
         return render_template("result2.html", u_image = to_be_sent)
 
         
