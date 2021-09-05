@@ -31,13 +31,9 @@ def log():
     if request.method == 'POST':
         post1.append(request.json)
 
-        imreset = Image.open("./static/images/reset-page.png")
-        arr1reset = np.asarray(imreset)
-        img1reset = Image.fromarray(arr1reset.astype('uint8'))
-        data1reset = io.BytesIO()
-        img1reset.save(data1reset, "PNG")
+        encoded_img_data1 = encoded_img_data[:1]
         encoded_img_data.clear()
-        encoded_img_data.append(base64.b64encode(data1reset.getvalue()))
+        encoded_img_data.append(encoded_img_data1)
 
         list1, listelse = meths.main(request.json['product'], request.json['reactant'])
         tests2.append(len(list1))
@@ -127,13 +123,10 @@ def result2():
         
 @app.route("/")
 def index():
-    imreset = Image.open("./static/images/reset-page.png")
-    arr1reset = np.asarray(imreset)
-    img1reset = Image.fromarray(arr1reset.astype('uint8'))
-    data1reset = io.BytesIO()
-    img1reset.save(data1reset, "PNG")
+    encoded_img_data1 = encoded_img_data[:1]
     encoded_img_data.clear()
-    encoded_img_data.append(base64.b64encode(data1reset.getvalue()))
+    encoded_img_data.append(encoded_img_data1[-1])
+
     return render_template("main.html", u_image = encoded_img_data[-1].decode('utf-8'))
 
 if __name__ == '__main__': 
