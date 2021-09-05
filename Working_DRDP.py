@@ -39,7 +39,7 @@ class meths():
                 yield v
     
     def main(smiles_of_product, smiles_of_reactant):
-        api_key = 'apk-7de5c27fec662e73174ab59c4889a54933eb67b6aafcb5cc6d41ce03709eecda8fd15bb89fed084cfd86a0f9b7a7b2f0c6fbcb3eb960f43a877cdf84f74304e98952c1cf8b5e185624a07136e04df096'
+        api_key = 'apk-a0d6381bfd8b86c8e61c281591c965fa7e0a1dd63a87a9ab4f7b3f5db212f8a828346b2d8592a8416f335762347fdeb28b4918867582ae86b142296eb7b8dbf9869c19f62a59d21f9531d07e81ce9c82'
         rxn4chemistry_wrapper = RXN4ChemistryWrapper(api_key=api_key)
         rxn4chemistry_wrapper.create_project(name="pl2")
         time.sleep(2)
@@ -231,7 +231,7 @@ class meths():
         
     def protocol_nlp():
 
-        api_key = 'apk-7de5c27fec662e73174ab59c4889a54933eb67b6aafcb5cc6d41ce03709eecda8fd15bb89fed084cfd86a0f9b7a7b2f0c6fbcb3eb960f43a877cdf84f74304e98952c1cf8b5e185624a07136e04df096'
+        api_key = 'apk-a0d6381bfd8b86c8e61c281591c965fa7e0a1dd63a87a9ab4f7b3f5db212f8a828346b2d8592a8416f335762347fdeb28b4918867582ae86b142296eb7b8dbf9869c19f62a59d21f9531d07e81ce9c82'
         rxn4chemistry_wrapper = RXN4ChemistryWrapper(api_key=api_key)
         rxn4chemistry_wrapper.create_project(name="pl2")
         time.sleep(2)
