@@ -31,8 +31,6 @@ def log():
     if request.method == 'POST':
         post1.append(request.json)
 
-        encoded_img_data.append(encoded_img_data[0])
-
         list1, listelse = meths.main(request.json['product'], request.json['reactant'])
         tests2.append(len(list1))
 
@@ -63,10 +61,8 @@ def log():
             img.save(file_object, 'PNG')
             file_object.seek(0)
             tests.append('1a')
-            
-            encoded_img_data.append(base64.b64encode(file_object.getvalue()))
 
-            return "redirect('/result2')"
+            return base64.b64encode(file_object.getvalue())
         else:
             images = []
             for ex in list1:
@@ -87,15 +83,14 @@ def log():
                 x_offset += im.size[1]
 
             arr = np.asarray(new_im)
-            img = Image.fromarray(arr.astype('uint8'))
+            # img = Image.fromarray(arr.astype('uint8'))
 
-            file_object = io.BytesIO()
-            img.save(file_object, 'PNG')
-            file_object.seek(0)
-            tests.append('1b')
-            
-            encoded_img_data.append(base64.b64encode(file_object.getvalue()))
-            return "redirect('/result')"
+            # file_object = io.BytesIO()
+            # img.save(file_object, 'PNG')
+            # file_object.seek(0)
+            # tests.append('1b')
+            # base64.b64encode(file_object.getvalue())
+            return {'arg':arr.tolist()}
 
     else:
         if tests2[-1] == 0:
@@ -104,24 +99,42 @@ def log():
             return "1"
 
 
+dataA = []
+@app.route("/resulta", methods=['GET', 'POST'])
+def resulta():
+    
+    if request.method == 'POST':
+        dataA.clear()
+        dataA.append(request.json['dataaa'])
+
+        return 'base64.b64encode(file_object.getvalue())'
+
+
 @app.route("/result", methods=['GET', 'POST'])
 def result():
+    if request.method == 'GET':
+        img = Image.fromarray(np.asarray(dataA[-1]).astype('uint8'))
 
-    if request.method == 'POST' or 'GET':
-
-        return render_template("result.html", u_image = encoded_img_data[-1].decode('utf-8'))
+        file_object = io.BytesIO()
+        img.save(file_object, 'PNG')
+        file_object.seek(0)
+        tests.append('1b')
+        return render_template("result.html", u_image = base64.b64encode(file_object.getvalue()).decode('utf-8'))
 
 @app.route("/result2", methods=['GET', 'POST'])
 def result2():
+    if request.method == 'GET':
+        img = Image.fromarray(np.asarray(dataA[-1]).astype('uint8'))
 
-    if request.method == 'POST' or 'GET':
-
-        return render_template("result2.html", u_image = encoded_img_data[-1].decode('utf-8'))
+        file_object = io.BytesIO()
+        img.save(file_object, 'PNG')
+        file_object.seek(0)
+        tests.append('1b')
+        return render_template("result2.html", u_image = base64.b64encode(file_object.getvalue()).decode('utf-8'))
     
         
 @app.route("/")
 def index():
-    encoded_img_data.append(encoded_img_data[0])
 
     return render_template("main.html", u_image = encoded_img_data[-1].decode('utf-8'))
 
