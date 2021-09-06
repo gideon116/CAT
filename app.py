@@ -106,7 +106,6 @@ def result():
         img.save(file_object, 'PNG')
         file_object.seek(0)
         tests.append('1b')
-        dataA.clear()
         return render_template("result.html", u_image = base64.b64encode(file_object.getvalue()).decode('utf-8'))
 
 @app.route("/result2", methods=['GET', 'POST'])
@@ -118,7 +117,6 @@ def result2():
         img.save(file_object, 'PNG')
         file_object.seek(0)
         tests.append('1a')
-        
         return render_template("result2.html", u_image = base64.b64encode(file_object.getvalue()).decode('utf-8'))
     
         
