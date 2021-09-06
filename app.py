@@ -50,6 +50,10 @@ def log():
             new_im = Image.new('RGB', (total_width, max_height), (255, 255, 255))
             x_offset = 0 
 
+            for im in images:
+                new_im.paste(im, (0, x_offset))
+                x_offset += im.size[1]
+
             arr = np.asarray(new_im)
             return {'arg':arr.tolist()}
 
@@ -102,7 +106,7 @@ def result():
         img.save(file_object, 'PNG')
         file_object.seek(0)
         tests.append('1b')
-        
+        dataA.clear()
         return render_template("result.html", u_image = base64.b64encode(file_object.getvalue()).decode('utf-8'))
 
 @app.route("/result2", methods=['GET', 'POST'])
@@ -125,3 +129,5 @@ def index():
 
 if __name__ == '__main__': 
     app.run(port=3000)
+
+
