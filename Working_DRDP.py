@@ -59,8 +59,8 @@ class meths():
 
             
             # print(results['status'])
-            if results['status'] == 'SUCCESS':
-            #if len(results['retrosynthetic_paths']) != 0:
+            #if results['status'] == 'SUCCESS':
+            if len(results['retrosynthetic_paths']) != 0:
                 break
             
             time.sleep(13)
