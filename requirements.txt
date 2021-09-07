@@ -8,6 +8,7 @@ ipython
 ipython-genutils
 ipywidgets
 numpy
+os
 oauthlib
 pandas
 pandocfilters
