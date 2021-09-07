@@ -5,6 +5,7 @@ from rdkit.Chem.Draw import IPythonConsole
 from Working_DRDP import meths
 import numpy as np
 import base64
+import os
 
 
 app = Flask(__name__)
@@ -125,7 +126,7 @@ def index():
 
     return render_template("main.html", u_image = encoded_img_data[-1].decode('utf-8'))
 
-if __name__ == '__main__': 
-    app.run(port=3000)
-
+if __name__ == "__main__":
+  port = int(os.getenv("PORT", 8080))
+  app.run(host='0.0.0.0', port=port)
 
