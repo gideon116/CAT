@@ -1,1 +1,1 @@
-python-3.x.x
+python-3.6.x
