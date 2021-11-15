@@ -1,6 +1,6 @@
 applications:
 - name: compaidtra1
   random-route: true
-  memory: 8GB
+  memory: 999M
   command: python app.py
   
